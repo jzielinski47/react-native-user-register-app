@@ -48,6 +48,12 @@ function deleteUser(req, res) {
         const json = JSON.parse(data)
 
         console.log(users)
+        users.map(user => {
+            if (user.id === json.id) {
+                console.log(user.login)
+                usernames.splice(usernames.indexOf(user.login), 1)
+            }
+        })
         users = users.filter(user => user.id !== json.id)
         console.log(users, json.id)
 
